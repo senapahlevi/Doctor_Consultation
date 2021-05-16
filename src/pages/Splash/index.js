@@ -1,7 +1,22 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React,{useEffect} from 'react';
+import { StyleSheet, Text, View} from 'react-native';
 import {ILLogo} from '../../assets/';
-const Splash = () => {
+/*
+make navigation.replace jadi kalo back gak bisa
+karena ga nyimpen history sehingga auto keluar mirip apps 
+normal pada umumnya
+
+beda make navigation.navigate back nyimpen history
+dan bisa back gitu jadi abnormal /tapi ini ga jelaslah
+karena aplikasi ga sesuai pada umumnya
+*/
+
+const Splash = ({navigation}) => {
+    useEffect(() => {
+        setTimeout(()=>{
+            navigation.replace('GetStarted');
+        },3000);
+    },[]);
     return (
         <View 
         style ={styles.page}>

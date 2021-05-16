@@ -6,13 +6,21 @@
  * @flow strict-local
  */
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { Splash } from './pages'
+import 'react-native-gesture-handler';
+//import { createAppContainer } from 'react-navigation';
 
+//import { StyleSheet, Text, View } from 'react-native'
+import { GetStarted, Splash } from './pages'
+import { NavigationContainer } from '@react-navigation/native';
+import Router from './router';
 //import Communicat from '../Communicat.js';
 const App = () => {
-  return  <Splash/>;
+  return(
+    <NavigationContainer>
+      <Router />
+    </NavigationContainer>
+  )  
 };
 
 
-export default App
+export default App;
