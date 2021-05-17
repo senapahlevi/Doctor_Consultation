@@ -1,14 +1,28 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { colors, fonts } from '../../../utils';
+import IconOnly from './iconOnly';
 /*
 jadi kenapa ada parameter props button ini?
 buat yang make button dan be Efficient sen ke GetStarted
 karena gausah perlu rubah kodingan manual di sini
 jadi rubah di Getstarted aja
 
+icon-only khusus kayak arroow back gitu
+beda dari yang btn sign in gitu
+icon ={icon} itu nanti diisi dari icononly misal{"back-dark"}
+type="icon-only "misal itu buat diisi di header misal nya 
+jadi ga usah utak atik manual
+
+onPress={onPress} buat nanti diisi
+navigation.replace/navigate("Keluar misal")
 */
 
-const Button = ({type, title, onPress}) => {
+const Button = ({type, title,icon, onPress}) => {
+    if(type === 'icon-only'){
+        return <IconOnly icon={icon} onPress={onPress} />; 
+    }
+
     return (
         <TouchableOpacity
         style={styles.container(type)} 
@@ -31,15 +45,15 @@ jika no (warna defaultnya) maka automatis warna 0BCAD4
 */
 const styles = StyleSheet.create({
 container: type=>({
-    backgroundColor: type === 'secondary' ? 'white': "#0BCAD4",
+    backgroundColor: type === 'secondary' ? colors.button.secondary.background: colors.button.primary.background,
     paddingVertical:10,
     borderRadius:10,
 }),
 text: type =>({
     fontSize:16,
-    fontWeight:'600',
+    fontFamily:fonts.primary[600],
     textAlign:'center',
-    color: type === 'secondary' ? '#112340':'white'
+    color: type === 'secondary' ? colors.button.secondary.text:colors.button.primary.text
 }),
 
 });

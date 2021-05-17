@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View,ImageBackground} from 'react-native';
 import {ILLogo,ILGetStarted} from '../../assets';
 import {Button,Gap} from '../../components';
+import { colors, fonts } from '../../utils';
 
 const GetStarted = ({navigation}) => {
     return (
@@ -13,9 +14,9 @@ const GetStarted = ({navigation}) => {
                 </Text>
            </View>
             <View>
-                <Button title="Get Started" onPress={()=> alert('hello')}/>
+                <Button title="Get Started" onPress={()=> navigation.navigate("Register")}/>
                 <Gap height={26}/>
-                <Button type="secondary" title="Sign in" onPress={()=>alert("sena")}/> 
+                <Button type="secondary" title="Sign in" onPress={()=>navigation.navigate("Login")}/> 
             </View>      
         </ImageBackground>
     );
@@ -27,14 +28,15 @@ const styles = StyleSheet.create({
     page: {
         padding:40,
         justifyContent:"space-between",
-        backgroundColor:"white",
+        backgroundColor:colors.white,
         flex:1
     },
     title :{
         fontSize:28,
-        fontWeight:'600',
-        color:"white",
+        color:colors.white,
         marginTop:91,
-        fontFamily:"Nunito-Semibold"
+        fontFamily:fonts.primary[600],
     }
 })
+
+//nunito semibold = 600 fontsize

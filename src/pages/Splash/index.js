@@ -1,6 +1,7 @@
 import React,{useEffect} from 'react';
 import { StyleSheet, Text, View} from 'react-native';
 import {ILLogo} from '../../assets/';
+import { colors, fonts } from '../../utils';
 /*
 make navigation.replace jadi kalo back gak bisa
 karena ga nyimpen history sehingga auto keluar mirip apps 
@@ -33,15 +34,15 @@ export default Splash;
 
 const styles = StyleSheet.create({
     page:{
-        backgroundColor:'white',
+        backgroundColor:colors.white,
         flex:1,
         alignItems:'center',
         justifyContent:'center',
     },
     title:{
         fontSize:20,
-        fontWeight:'600',
-        color:'black',
+        fontFamily:fonts.primary[600],
+        color:colors.text.primary,
         marginTop:20,
     },
 
