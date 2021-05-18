@@ -1,9 +1,11 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable semi */
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import {ILLogo} from '../../assets';
 import {Input,Link,Button,Gap} from '../../components';
 import { colors, fonts } from '../../utils';
-const Login = () => {
+const Login = ({navigation}) => {
     return (
         <View style={styles.page}>
             <ILLogo />
@@ -14,7 +16,7 @@ const Login = () => {
             <Gap height ={10} />
             <Link title="Forgot Password"/>
             <Gap height={40} />
-            <Button title="Sign in" />
+            <Button title="Sign in" onPress={()=> navigation.replace('MainApp')} />
             <Gap height ={15} />
             <Link title="Create New Account" size={16} align="center"/>
         </View>
