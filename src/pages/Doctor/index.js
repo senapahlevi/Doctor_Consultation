@@ -17,32 +17,37 @@ const Doctor = () => {
 <View style={styles.page}>
     <View style={styles.content}>
         <ScrollView showsVerticalScrollIndicator={false}>
-            <Gap height={30}/>
-            <HomeProfile />
-            <Text style={styles.welcome}>
-                Mau Konsultasi dengan
-                siapa hari ini ?
-            </Text>
+            <View style={styles.wrapSection}>
+                <Gap height = {30} />
+                <HomeProfile />
+                <Text style={styles.welcome}>
+                    Mau Konsultasi dengan siapa hari ini ?
+                </Text>
+            </View>
+            
            
             <View style={styles.wrapperScroll}>
                 <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                     <View style={styles.category}>
-                        <Gap width={10} />
+                        <Gap width={30} />
                         <DoctorCategory />
                         <DoctorCategory />
                         <DoctorCategory />
                         <DoctorCategory />
-                        <Gap width={5} />
+                        <Gap width={25} />
                     </View>
                 </ScrollView>
             </View>
-        
-            <Text style={styles.sectionLabel}>Top Rated Doctor</Text>
-            <RatedDoctor />
-            <RatedDoctor />
-            <RatedDoctor />
-            
-            <Text style={styles.sectionLabel}> Goof news</Text>
+            <View style={styles.wrapSection}>
+                <Text style={styles.sectionLabel}>Top Rated Doctor</Text>
+                <RatedDoctor />
+                <RatedDoctor />
+                <RatedDoctor />
+                
+                <Text style={styles.sectionLabel}> Goof news</Text>
+            </View>
+
+           
             <NewsItem />
             <NewsItem />
             <NewsItem /> 
@@ -66,11 +71,12 @@ const styles = StyleSheet.create({
         backgroundColor:colors.secondary,
         flex:1,
     },
+    wrapSection:{
+        paddingHorizontal:16,
+    },
     content:{
         backgroundColor:colors.white,
         flex:1,
-        paddingVertical:10,
-        paddingHorizontal:16,
         borderBottomLeftRadius:20,
         borderBottomRightRadius:20,
     },
