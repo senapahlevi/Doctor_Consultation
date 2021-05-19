@@ -30,10 +30,12 @@ const Doctor = () => {
                 <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                     <View style={styles.category}>
                         <Gap width={30} />
-                        <DoctorCategory />
-                        <DoctorCategory />
-                        <DoctorCategory />
-                        <DoctorCategory />
+                        <DoctorCategory category="umum" />
+                        <DoctorCategory category="psikiater" />
+                        <DoctorCategory category="obat" />
+                        <DoctorCategory category="umum" />
+                        <DoctorCategory category="anak" />
+
                         <Gap width={25} />
                     </View>
                 </ScrollView>
