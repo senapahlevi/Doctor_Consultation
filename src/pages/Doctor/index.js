@@ -5,6 +5,8 @@ import { color } from 'react-native-reanimated';
 import { DoctorCategory, Gap, HomeProfile, NewsItem } from '../../components';
 import RatedDoctor from '../../components/molecules/RatedDoctor';
 import { colors, fonts } from '../../utils';
+import {JSONCategoryDoctor} from '../../assets';
+
 /*
             
 <DoctorCategory />
@@ -13,6 +15,19 @@ import { colors, fonts } from '../../utils';
             <DoctorCategory />
 */
 const Doctor = () => {
+    /*
+    ini adalah inline state dinamis/biasa make props 
+    jadi disini rubah nama category pada liistdoctor
+    sehingga disini kita tinggal edit edit lebih rapi 
+
+    nah ada juga make json
+                        <DoctorCategory category="umum" />
+                        <DoctorCategory category="psikiater" />
+                        <DoctorCategory category="obat" />
+                        <DoctorCategory category="umum" />
+                        <DoctorCategory category="anak" />
+
+    */
     return (
 <View style={styles.page}>
     <View style={styles.content}>
@@ -24,18 +39,15 @@ const Doctor = () => {
                     Mau Konsultasi dengan siapa hari ini ?
                 </Text>
             </View>
-            
-           
+                 
             <View style={styles.wrapperScroll}>
                 <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                     <View style={styles.category}>
                         <Gap width={30} />
-                        <DoctorCategory category="umum" />
-                        <DoctorCategory category="psikiater" />
-                        <DoctorCategory category="obat" />
-                        <DoctorCategory category="umum" />
-                        <DoctorCategory category="anak" />
-
+                        {JSONCategoryDoctor.data.map(item => {
+                                return <DoctorCategory key={item.id}category={item.category} />;
+                            })
+                        }
                         <Gap width={25} />
                     </View>
                 </ScrollView>
