@@ -3,13 +3,13 @@ import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { DummyDoctor2 } from '../../../assets';
 import { colors, fonts } from '../../../utils';
-const ListDoctor = () => {
+const ListDoctor = ({profile, name, desc}) => {
     return (
         <View style={styles.container}>
-            <Image source={DummyDoctor2} style={styles.avatar} />
+            <Image source={profile} style={styles.avatar} />
             <View >
-                <Text style={styles.name}>Ini list doctor</Text>
-                <Text style={styles.desc}>Baik bu,terimakasih telah menghub...</Text>
+                <Text style={styles.name}>{name}</Text>
+                <Text style={styles.desc}>{desc}</Text>
             </View>
         </View>
     );
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     avatar:{
         width:46,
         height:46,
-        borderRadius:46/2,
+        borderRadius:46 / 2,
         marginRight:12,
     },
     name:{

@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { ImageBackground, StyleSheet, Text, View } from 'react-native';
-import { ILHospitalBG } from '../../assets';
+import { DummyHospital1, DummyHospital2, DummyHospital3, ILHospitalBG } from '../../assets';
 import { ListHospital } from '../../components';
 import { colors, fonts } from '../../utils';
 const Hospitals = () => {
@@ -12,9 +12,9 @@ const Hospitals = () => {
                 <Text style={styles.desc}>3 Tersedia</Text>
             </ImageBackground>
             <View style={styles.content}>
-                <ListHospital />
-                <ListHospital />
-                <ListHospital />
+                <ListHospital type="Rumah Sakit" name="Citra Annisa" address="JL.Moh Toha KM 20" pic={DummyHospital1}/>
+                <ListHospital type="Rumah sakit" name="Siloam Bangsa" address="JL.Ahmad Yani No 20" pic={DummyHospital2}/>
+                <ListHospital type="Rumah sakit" name="Cipta Annisa" address="JL.Karawaci Lippo Mall No. 20" pic={DummyHospital3}/>
             </View>
         </View>
     );

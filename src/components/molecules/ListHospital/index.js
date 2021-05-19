@@ -1,17 +1,16 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
-import { color } from 'react-native-reanimated';
-import { DummyHospital1 } from '../../../assets';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import { colors, fonts } from '../../../utils';
-const ListHospital = () => {
+
+const ListHospital = ({type,name,address,pic}) => {
     return (
         <View style={styles.container}>
-            <Image source={DummyHospital1} style={styles.picture}/>
+            <Image source={pic} style={styles.picture}/>
             <View>
-            <Text style={styles.title}>Rumah Sakit</Text>
-            <Text style={styles.title}>Citra Annisa</Text>
-            <Text style={styles.address} >Jln Moh Toha km 10</Text>
+            <Text style={styles.title}>{type}</Text>
+            <Text style={styles.title}>{name}</Text>
+            <Text style={styles.address} >{address}</Text>
             </View>
             
         </View>
