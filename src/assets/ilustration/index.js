@@ -7,6 +7,7 @@ import ILCatPsikiater from './icon_dokter_psikiater.svg';
 import ILCatObat from './icon_obat.svg';
 import ILCatAnak from './icon_dokter_anak.svg';
 import IconStar from './star_rate.svg';
+import ILHospitalBG from './Hospitals_background.png';
 
 export {
     ILLogo,
@@ -17,4 +18,5 @@ export {
     ILCatObat,
     ILCatAnak,
     IconStar,
+    ILHospitalBG,
 };
