@@ -6,6 +6,10 @@ import DummyDoctor3 from './Doctor_Podiatrist.png';
 import DummyDoctor4 from './DummyDoctor4.png';
 import DummyDoctor5 from './DummyDoctor5.png';
 import DummyDoctor6 from './DummyDoctor6.png';
+import DummyDoctor7 from './DummyDoctor7.png';
+import DummyDoctor8 from './DummyDoctor8.png';
+
+
 
 import DummyNews1 from './Building.png';
 import DummyNews2 from './Citrus.png';
@@ -26,6 +30,8 @@ export {
     DummyDoctor4,
     DummyDoctor5,
     DummyDoctor6,
+    DummyDoctor7,
+    DummyDoctor8,
     DummyNews1,
     DummyNews2,
     DummyNews3,

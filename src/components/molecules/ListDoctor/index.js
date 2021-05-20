@@ -1,19 +1,24 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { DummyDoctor2 } from '../../../assets';
+import { DummyDoctor2, IconNext } from '../../../assets';
 import { colors, fonts } from '../../../utils';
-const ListDoctor = ({profile, name, desc}) => {
+const ListDoctor = ({profile, name, desc ,type}) => {
     return (
         <View style={styles.container}>
             <Image source={profile} style={styles.avatar} />
-            <View >
+            <View style={styles.content}>
                 <Text style={styles.name}>{name}</Text>
                 <Text style={styles.desc}>{desc}</Text>
             </View>
+            {type === 'next' && <IconNext />}
         </View>
     );
 };
+/*
+itu  diatas {type==='next}jadi jika type nya next Pada choose doctor 
+maka nanti dikasih IconNext gitu arrow tiap doctor
+*/
 
 export default ListDoctor;
 
@@ -24,6 +29,10 @@ const styles = StyleSheet.create({
         borderBottomWidth:1,
         borderBottomColor:colors.border,
         alignItems:'center',
+        justifyContent:'space-between',
+    },
+    content:{
+        flex:1
     },
     avatar:{
         width:46,

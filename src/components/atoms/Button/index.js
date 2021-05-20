@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors, fonts } from '../../../utils';
@@ -29,8 +30,8 @@ const Button = ({type, title,icon, onPress}) => {
         onPress={onPress}>
             <Text style={styles.text(type)}>{title}</Text>
         </TouchableOpacity>
-    )
-}
+    );
+};
 
 export default Button;
 

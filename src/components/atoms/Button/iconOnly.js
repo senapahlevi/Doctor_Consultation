@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { IconBackDark } from '../../../assets';
+import { IconBackDark, IconBackLight } from '../../../assets';
 /*
 jika gw kasih nama dark-back maka dia
 muncul iconbackdark jadi ntar tinggal
@@ -13,11 +13,11 @@ kan ada 2 back warna hitam dan putih(di chatting)
 
 const IconOnly = ({onPress,icon}) => {
     const Icon = () => {
-        if(icon === 'dark-back'){ 
+        if (icon === 'dark-back'){
             return <IconBackDark />;
         }
         if (icon === 'back-light'){
-            return <IconBackDark />;
+            return <IconBackLight />;
         }
     //INI adalah default nya
         return <IconBackDark />; };

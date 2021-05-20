@@ -14,10 +14,10 @@ import {JSONCategoryDoctor} from '../../assets';
             <DoctorCategory />
             <DoctorCategory />
 */
-const Doctor = () => {
+const Doctor = ({navigation}) => {
     /*
     ini adalah inline state dinamis/biasa make props 
-    jadi disini rubah nama category pada liistdoctor
+    jadi disini rubah nama category pada doctorCategory
     sehingga disini kita tinggal edit edit lebih rapi 
 
     nah ada juga make json
@@ -45,7 +45,7 @@ const Doctor = () => {
                     <View style={styles.category}>
                         <Gap width={30} />
                         {JSONCategoryDoctor.data.map(item => {
-                                return <DoctorCategory key={item.id}category={item.category} />;
+                                return <DoctorCategory key={item.id}category={item.category} onPress={()=> navigation.navigate("ChooseDoctor")} />;
                             })
                         }
                         <Gap width={25} />

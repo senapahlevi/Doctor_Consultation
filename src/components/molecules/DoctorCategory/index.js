@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity} from 'react-native';
 import { ILCatAnak, ILCatObat, ILCatPsikiater, ILCatUmum } from '../../../assets';
 import { colors, fonts } from '../../../utils';
 
-const DoctorCategory = ({category}) => {
+const DoctorCategory = ({category,onPress}) => {
     const Icon = () => {
 
     if (category === 'umum'){
@@ -26,11 +26,11 @@ const DoctorCategory = ({category}) => {
     icon category nya atau lupa ngasih gambar nya sama
     */
     return (
-        <View style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={onPress}>
             <Icon />
             <Text style={styles.label}>Saya butuh dokter</Text>
             <Text style={styles.category}> {category} </Text>
-        </View>
+        </TouchableOpacity>
     );
 };
 
