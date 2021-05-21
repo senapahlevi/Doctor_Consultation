@@ -3,7 +3,7 @@ import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { DummyDoctor2, IconNext } from '../../../assets';
 import { colors, fonts } from '../../../utils';
-const ListDoctor = ({profile, name, desc ,type,onPress}) => {
+const List = ({profile, name, desc ,type,onPress}) => {
     return (
         <TouchableOpacity style={styles.container} onPress={onPress}>
             <Image source={profile} style={styles.avatar}  />
@@ -20,7 +20,7 @@ itu  diatas {type==='next}jadi jika type nya next Pada choose doctor
 maka nanti dikasih IconNext gitu arrow tiap doctor
 */
 
-export default ListDoctor;
+export default List;
 
 const styles = StyleSheet.create({
     container:{

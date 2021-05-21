@@ -1,13 +1,13 @@
 /* eslint-disable prettier/prettier */
 import React,{useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { DummyDoctor1, DummyDoctor4, DummyDoctor5, DummyDoctor6 } from '../../assets';
-import { ListDoctor } from '../../components';
+import { DummyDoctor4, DummyDoctor5, DummyDoctor6 } from '../../assets';
+import { List } from '../../components';
 import { colors, fonts } from '../../utils';
 
 
 const Messages = () => {
-    const [doctors,setDoctors] = useState([
+    const [doctors ] = useState([
         {
             id: 1,
             profile: DummyDoctor4,
@@ -31,7 +31,7 @@ const Messages = () => {
     ]);
     /*
     ini tujuan dibawah utk mapping adalah untuk ngasih nilai props
-    pada ListDoctor di menubottom messages jadi biar dinamis/ ntar rubah
+    pada ListDoctor(list folder) di menubottom messages jadi biar dinamis/ ntar rubah
     nya di listdoctor bae
     */
     return (
@@ -41,7 +41,7 @@ const Messages = () => {
                 {
                     doctors.map(doctor =>{
                         return (
-                            <ListDoctor
+                            <List
                             key={doctor.id}
                             profile={doctor.profile}
                             name={doctor.name}
@@ -50,9 +50,7 @@ const Messages = () => {
                         );
                     })
                 }
-                
             </View>
-            
         </View>
     );
 };

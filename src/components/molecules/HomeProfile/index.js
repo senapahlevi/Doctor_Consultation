@@ -1,17 +1,17 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors, fonts } from '../../../utils';
 import {DummyUser} from '../../../assets';
-const HomeProfile = () => {
+const HomeProfile = ({onPress}) => {
     return (
-        <View style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={onPress}>
             <Image source={DummyUser} style={styles.avatar}/>
             <View>
                 <Text style={styles.name}>Jessica Stefany</Text>
                 <Text style ={styles.profession}>Lead Software Engineer</Text>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };
 
