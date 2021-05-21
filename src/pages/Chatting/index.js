@@ -7,10 +7,13 @@ import InputChat from '../InputChat';
 /*
 input chat diluar styles.content karena biar auto ke bawah
 */
-const Chatting = () => {
+const Chatting = ({navigation}) => {
     return (
         <View style={styles.page}>
-            <Header type="dark-profile" title="Aleksandra Jenie"/>
+            <Header type="dark-profile"
+             title="Aleksandra Jenie"
+             onPress={()=>navigation.goBack()}
+             />
             <View style={styles.content}>
                 <Text
                 style={styles.chatDate}>

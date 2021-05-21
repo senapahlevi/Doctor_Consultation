@@ -4,10 +4,10 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Button, Gap, Header, Profile, ProfileItem } from '../../components';
 import { colors } from '../../utils';
 
-const DoctorProfile = () => {
+const DoctorProfile = ({navigation}) => {
     return (
         <View style={styles.page}>
-            <Header title="Doctor Profile"/>
+            <Header title="Doctor Profile" onPress={()=> navigation.goBack()}/>
             <Profile name="Aleksandra Jenie" desc="Dokter Anak"/>
             <Gap height={10}/>
             <ProfileItem

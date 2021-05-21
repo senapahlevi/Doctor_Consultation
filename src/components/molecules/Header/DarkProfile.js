@@ -4,12 +4,13 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import { DummyDoctor1, DummyDoctor4 } from '../../../assets';
 import { colors, fonts } from '../../../utils';
 import { Button } from '../../atoms';
-const DarkProfile = () => {
+
+const DarkProfile = ({onPress}) => {
     return (
         <View style={styles.container}>
-            <Button type="icon-only" icon="back-light"/>
+            <Button type="icon-only" icon="back-light" onPress={onPress}/>
             <View style={styles.content}>
-                <Text style={styles.name}>Aleksandra Jenie</Text>
+                <Text style={styles.name}>Aleksandra Jeniet</Text>
                 <Text style={styles.desc}>Dokter Anak</Text>
             </View>
             

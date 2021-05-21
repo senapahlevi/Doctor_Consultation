@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { colors, fonts } from '../../../utils';
 
-const Link = ({title,size,align}) => {
+const Link = ({title,size,align,onPress}) => {
     //jadi .text(size) itu untuk menerima parameter size
     //sehingga nanti ukuran text forgotpass&create new account bisa dinamis ukuran dan tulisan nya
     //dirubah di bagian login aja jadi lebih simpel rapih efisien
@@ -12,11 +12,11 @@ const Link = ({title,size,align}) => {
     dan create new account
     */
     return (
-        <View>
+        <TouchableOpacity onPress={onPress}>
             <Text style={styles.text(size,align)}>{title}</Text>
-        </View>
-    )
-}
+        </TouchableOpacity >
+    );
+};
 
 export default Link;
 

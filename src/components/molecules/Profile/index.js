@@ -3,12 +3,17 @@ import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { DummyUser, IconRemovePhoto } from '../../../assets';
 import { colors, fonts } from '../../../utils';
-const Profile = ({name,desc}) => {
+/*
+ {isRemove && <IconRemovePhoto style={styles.removePhoto}/>}
+maksudnya adalah jika manggil props isRemove maka muncul 
+silang X pada profile
+*/
+const Profile = ({name,desc,isRemove}) => {
     return (
         <View style={styles.container}>
             <View style={styles.borderProfile}>
                 <Image source={DummyUser} style={styles.avatar}/>
-                <IconRemovePhoto style={styles.removePhoto} />
+                {isRemove && <IconRemovePhoto style={styles.removePhoto}/>}
             </View>
             
             {name && (

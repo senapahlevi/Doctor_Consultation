@@ -14,11 +14,20 @@ const Login = ({navigation}) => {
             <Gap height={24} />
             <Input label="Password" size={12}/>
             <Gap height ={10} />
-            <Link title="Forgot Password"/>
+            <Link 
+            title="Forgot Password"
+            />
             <Gap height={40} />
-            <Button title="Sign in" onPress={()=> navigation.replace('MainApp')} />
+            <Button title="Sign in"
+            onPress={()=> navigation.replace('MainApp')} 
+            />
             <Gap height ={15} />
-            <Link title="Create New Account" size={16} align="center"/>
+            <Link
+            title="Create New Account"
+            size={16}
+            align="center"
+            onPress={()=> navigation.navigate('Register')}
+            />
         </View>
     )
 }
