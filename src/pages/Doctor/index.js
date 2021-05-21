@@ -1,11 +1,10 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { color } from 'react-native-reanimated';
 import { DoctorCategory, Gap, HomeProfile, NewsItem } from '../../components';
 import RatedDoctor from '../../components/molecules/RatedDoctor';
 import { colors, fonts } from '../../utils';
-import {JSONCategoryDoctor} from '../../assets';
+import {DummyDoctor1, DummyDoctor2, DummyDoctor3, JSONCategoryDoctor} from '../../assets';
 
 /*
             
@@ -39,7 +38,6 @@ const Doctor = ({navigation}) => {
                     Mau Konsultasi dengan siapa hari ini ?
                 </Text>
             </View>
-                 
             <View style={styles.wrapperScroll}>
                 <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                     <View style={styles.category}>
@@ -54,11 +52,27 @@ const Doctor = ({navigation}) => {
             </View>
             <View style={styles.wrapSection}>
                 <Text style={styles.sectionLabel}>Top Rated Doctor</Text>
-                <RatedDoctor />
-                <RatedDoctor />
-                <RatedDoctor />
+                <RatedDoctor
+                name="Felicia Tan"
+                desc="Pediatrician"
+                avatar={DummyDoctor1}
+                onPress={()=>navigation.navigate('DoctorProfile')}
+                />
+                <RatedDoctor
+                name="Felicia Tan"
+                desc="Pediatrician"
+                avatar={DummyDoctor2}
+                onPress={()=>navigation.navigate('DoctorProfile')}
+                />
+                <RatedDoctor
+                name="Felicia Tan"
+                desc="Pediatrician"
+                avatar={DummyDoctor3}
+                onPress={()=>navigation.navigate('DoctorProfile')}
+                />
                 
-                <Text style={styles.sectionLabel}> Goof news</Text>
+                <Text
+                 style={styles.sectionLabel}> Goof news</Text>
             </View>
 
            

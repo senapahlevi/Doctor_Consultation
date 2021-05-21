@@ -9,6 +9,7 @@ import List from './List';
 import ListHospital from './ListHospital';
 import ChatItem from './ChatItem';
 import Profile from './Profile';
+import ProfileItem from './ProfileItem';
 
 
 
@@ -23,4 +24,5 @@ export {
     ListHospital,
     ChatItem,
     Profile,
+    ProfileItem,
 };

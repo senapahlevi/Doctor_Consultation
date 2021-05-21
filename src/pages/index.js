@@ -12,6 +12,7 @@ import Chatting from './Chatting';
 import InputChat from './InputChat';
 import UserProfile from './UserProfile';
 import UpdateProfile from './UpdateProfile';
+import DoctorProfile from './DoctorProfile';
 
 
 export {
@@ -28,4 +29,5 @@ export {
     InputChat,
     UserProfile,
     UpdateProfile,
+    DoctorProfile,
 };

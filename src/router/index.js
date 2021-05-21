@@ -16,7 +16,8 @@ import
     ChooseDoctor,
     Chatting,
     UserProfile,
-    UpdateProfile} from '../pages';
+    UpdateProfile,
+    DoctorProfile} from '../pages';
 import { BottomNavigator } from '../components';
 
 const Stack = createStackNavigator();
@@ -83,6 +84,11 @@ const Router = () =>{
             <Stack.Screen
             name = "UpdateProfile"
             component={UpdateProfile}
+            options={{headerShown:false }}
+            />
+             <Stack.Screen
+            name = "DoctorProfile"
+            component={DoctorProfile}
             options={{headerShown:false }}
             />
 
