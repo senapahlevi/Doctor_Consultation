@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {Gap,Button} from '../../atoms';
 import {colors} from '../../../utils';
+import DarkProfile from './DarkProfile';
 /*
 eitss inget sen ini parameter nya onPress lagi karena nanti iini
 digunain secara umum bukan satu doang jadi secara umum efisien
@@ -16,6 +17,9 @@ jika header nya dark maka arrow back nya yang putih light kalo bukan
 ya yang dark biasa item
 */
 const Header = ({onPress,title,type}) => {
+    if (type === 'dark-profile') {
+        return <DarkProfile />;
+    }
     return (
         <View style={styles.container(type)}>
             <Button type ="icon-only"

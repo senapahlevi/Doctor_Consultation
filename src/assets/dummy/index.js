@@ -9,8 +9,6 @@ import DummyDoctor6 from './DummyDoctor6.png';
 import DummyDoctor7 from './DummyDoctor7.png';
 import DummyDoctor8 from './DummyDoctor8.png';
 
-
-
 import DummyNews1 from './Building.png';
 import DummyNews2 from './Citrus.png';
 import DummyNews3 from './Orangejuice.png';

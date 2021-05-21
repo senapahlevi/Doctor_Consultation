@@ -2,6 +2,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors, fonts } from '../../../utils';
+import BtnIconSend from './BtnIconSend';
 import IconOnly from './iconOnly';
 /*
 jadi kenapa ada parameter props button ini?
@@ -19,14 +20,17 @@ onPress={onPress} buat nanti diisi
 navigation.replace/navigate("Keluar misal")
 */
 
-const Button = ({type, title,icon, onPress}) => {
-    if(type === 'icon-only'){
-        return <IconOnly icon={icon} onPress={onPress} />; 
+const Button = ({type, title,icon, onPress, disable}) => {
+    if (type === 'btn-icon-send') {
+        return <BtnIconSend disable={disable}/>;
+    }
+    if (type === 'icon-only'){
+        return <IconOnly icon={icon} onPress={onPress} />;
     }
 
     return (
         <TouchableOpacity
-        style={styles.container(type)} 
+        style={styles.container(type)}
         onPress={onPress}>
             <Text style={styles.text(type)}>{title}</Text>
         </TouchableOpacity>

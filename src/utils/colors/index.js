@@ -11,9 +11,12 @@ const mainColors = {
     green2:'#EDFCFD',
     dark1:'#112340',
     dark2:'#495A75',
+    dark3:'#8092AF',
     grey1:'#7D8797',
     white1:'white',
     grey2:'#E9E9E9',
+    grey3:'#EDEEF0',
+    blue1: '#0066CB',
 };
 
 /*
@@ -23,8 +26,10 @@ ya harus beda makanya make mainColors
 export const colors = {
     primary:mainColors.green1,
     secondary:mainColors.dark1,
+    tertiary:mainColors.blue1,
     white:'white',
     black:'black',
+    disable:mainColors.grey3,
     cardLight: mainColors.green2,
     border:
         mainColors.grey2,
@@ -33,6 +38,7 @@ export const colors = {
         secondary:mainColors.grey1,
         menuInactive:mainColors.dark2,
         menuActive:mainColors.green1,
+        subTitle:mainColors.dark3,
     },
     button:{
         primary:{
