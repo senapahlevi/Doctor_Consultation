@@ -24,7 +24,7 @@ const List = ({profile, name, desc ,type,onPress,icon}) => {
     };
     /* artinya dibawah ini {icon ? <Icon /> : <Image source={profile} style={styles.avatar} /> }
     jika gw milih panggil props icon maka muncul <Icon />
-    kalo gak ya yang muncul <Image /> ini 
+    kalo gak ya yang muncul <Image /> ini
     ini buat userProfile Ada icon Editprofile,language,dst */
     return (
         <TouchableOpacity style={styles.container} onPress={onPress}>
@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
     },
     content:{
-        flex:1
+        flex:1,
+        marginLeft:16,
     },
     avatar:{
         width:46,
