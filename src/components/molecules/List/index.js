@@ -1,12 +1,34 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { DummyDoctor2, IconNext } from '../../../assets';
+import { DummyDoctor2, IconEditProfile, IconHelp, IconLanguage, IconNext, IconRate } from '../../../assets';
 import { colors, fonts } from '../../../utils';
-const List = ({profile, name, desc ,type,onPress}) => {
+const List = ({profile, name, desc ,type,onPress,icon}) => {
+    /* ini merupakan cara unutk
+    beri icon pada userProfile di const Icon ini  */
+
+    const Icon = () => {
+        if (icon === 'edit-profile') {
+            return <IconEditProfile />;
+        }
+        if (icon === 'language') {
+            return <IconLanguage />;
+        }
+        if ( icon === 'help') {
+            return <IconHelp />;
+        }
+        if ( icon === 'rate') {
+            return <IconRate />;
+        }
+        return <IconEditProfile />;
+    };
+    /* artinya dibawah ini {icon ? <Icon /> : <Image source={profile} style={styles.avatar} /> }
+    jika gw milih panggil props icon maka muncul <Icon />
+    kalo gak ya yang muncul <Image /> ini 
+    ini buat userProfile Ada icon Editprofile,language,dst */
     return (
         <TouchableOpacity style={styles.container} onPress={onPress}>
-            <Image source={profile} style={styles.avatar}  />
+            {icon ? <Icon /> : <Image source={profile} style={styles.avatar} /> }
             <View style={styles.content}>
                 <Text style={styles.name}>{name}</Text>
                 <Text style={styles.desc}>{desc}</Text>
@@ -16,7 +38,7 @@ const List = ({profile, name, desc ,type,onPress}) => {
     );
 };
 /*
-itu  diatas {type==='next}jadi jika type nya next Pada choose doctor 
+itu  diatas {type==='next}jadi jika props diisi type= "next" Pada choose doctor 
 maka nanti dikasih IconNext gitu arrow tiap doctor
 */
 

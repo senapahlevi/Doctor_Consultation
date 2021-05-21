@@ -12,6 +12,11 @@ import IconHospitalsActive from './Hospitalsactive.svg';
 import IconNext from './arrow_next.svg';
 import IconSendDark from './send_pasif.svg';
 import IconSendLight from './send_active.svg';
+import IconEditProfile from './editprofile.svg';
+import IconLanguage from './languageicon.svg';
+import IconRate from './rateprofile.svg';
+import IconHelp from './helpcenter.svg';
+
 
 
 export {
@@ -25,4 +30,8 @@ export {
     IconNext,
     IconSendDark,
     IconSendLight,
+    IconEditProfile,
+    IconLanguage,
+    IconRate,
+    IconHelp,
 };
