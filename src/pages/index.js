@@ -11,6 +11,7 @@ import ChooseDoctor from './ChooseDoctor';
 import Chatting from './Chatting';
 import InputChat from './InputChat';
 import UserProfile from './UserProfile';
+import UpdateProfile from './UpdateProfile';
 
 
 export {
@@ -26,4 +27,5 @@ export {
     ChooseDoctor,
     InputChat,
     UserProfile,
+    UpdateProfile,
 };

@@ -1,20 +1,36 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { DummyUser } from '../../../assets';
+import { DummyUser, IconRemovePhoto } from '../../../assets';
 import { colors, fonts } from '../../../utils';
-const Profile = () => {
+const Profile = ({name,desc}) => {
     return (
         <View style={styles.container}>
             <View style={styles.borderProfile}>
                 <Image source={DummyUser} style={styles.avatar}/>
+                <IconRemovePhoto style={styles.removePhoto} />
             </View>
-            <Text style={styles.name}>Profile Component</Text>
-            <Text style={styles.profession}>Lead Software Engineer</Text>
+            
+            {name && (
+                <View>
+                    <Text style={styles.name}>{name}</Text>
+                    <Text style={styles.profession}>{desc}</Text>
+                </View>
+            )}
+            
 
         </View>
     );
 };
+/* nah diatas tuh sen yang name
+misal ada props name maka menghilangkan space kosong 
+aslinya
+<Text style={styles.name}>{name}</Text>
+<Text style={styles.profession}>{desc}</Text>  
+nah tujuannya biar rapih dan seolah olah bukan nama nya ilang
+tapi kok ada space yang keiisi dibawah foto nya itu
+kayak curiga lah pasti
+*/
 
 export default Profile;
 
@@ -50,5 +66,9 @@ const styles = StyleSheet.create({
         color:colors.text.secondary,
         marginTop:2,
     },
-
+    removePhoto:{
+        position:'absolute',
+        right:8,
+        bottom:8,
+    },
 });

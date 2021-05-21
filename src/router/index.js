@@ -15,7 +15,8 @@ import
     Hospitals,
     ChooseDoctor,
     Chatting,
-    UserProfile} from '../pages';
+    UserProfile,
+    UpdateProfile} from '../pages';
 import { BottomNavigator } from '../components';
 
 const Stack = createStackNavigator();
@@ -79,6 +80,12 @@ const Router = () =>{
             component={UserProfile}
             options={{headerShown:false }}
             />
+            <Stack.Screen
+            name = "UpdateProfile"
+            component={UpdateProfile}
+            options={{headerShown:false }}
+            />
+
 
         </Stack.Navigator>
     );
