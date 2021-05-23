@@ -14,10 +14,12 @@ const Register = ({navigation}) => {
     nah ini kita mau cek fullname,profesion,
     email,pass tapi kita contoh ke klik continue
     on debug di hp kemudian inspect elemen lalu
-    console nah klik abis tuh muncul 
+    console nah klik abis tuh muncul kalo gak ada
+    sekalipun diisi karena apa? 
+    karena
     */
     const onContinue = () =>{
-        console.log("Masuk Klik Continue")
+        console.log(fullName,profession,email,password);
     };
     return (
         <View style={styles.page}>
