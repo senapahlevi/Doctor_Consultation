@@ -21,18 +21,23 @@ const Register = ({navigation}) => {
     const onContinue = () =>{
         console.log(fullName,profession,email,password);
     };
+    /**
+     jadi misalkan onChangeText ini buat perubahan text biar bisa 
+     diinput/edit jadi (value kita terima) ini input value kemudian memberi 
+     value ke salah satu sampel yg gw ambil: setProfile(value),dst
+     */
     return (
         <View style={styles.page}>
             <Header onPress={() =>navigation.goBack()} title="Daftar Akun"/>
             <View style ={styles.content}>
                 <ScrollView showsVerticalScrollIndicator={false}>
-                    <Input label ="Full Name" />
+                    <Input label ="Full Name" value={fullName} onChangeText={(value)=>setFullname(value)}/>
                     <Gap height={24}/>
-                    <Input label ="Pekerjaan" />
+                    <Input label ="Pekerjaan" value={profession} onChangeText={(value)=>setProfession(value)}/>
                     <Gap height={24} />
-                    <Input label ="Email" />
+                    <Input label ="Email" value={email} onChangeText={(value)=>setEmail(value)}/>
                     <Gap height={24} />
-                    <Input label="password" />
+                    <Input label="password" value={password} onChangeText={(value)=>setPassword(value)} secureTextEntry={true}/>
                     <Gap height={24} />
                     <Button title="Continue" onPress={onContinue} />
                     <Gap height={40} />

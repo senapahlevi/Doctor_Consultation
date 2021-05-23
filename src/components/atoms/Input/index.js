@@ -14,7 +14,13 @@ jadi intinya onFocusForm akan merubah warna biru(ketika form A)
 jika onBlurForm merubah warna seperti semula jadi putih(ketika
     ga diklik form )
 */
-const Input = ({label}) => {
+/* jadi ini ada onchangetext buat nanti di form kayak
+register buat ketika ada perubahan input text atau mau diisi
+bisa berjalan dan value ini digunakan pada value form yang mana 
+misal buat email yaudah berarti hooks email diisinya 
+secureTextEntry buat passwordd
+*/
+const Input = ({label, value, onChangeText, secureTextEntry}) => {
     const [border,setBorder] = useState(colors.border);
     const onFocusForm = () => {
         setBorder(colors.tertiary);
@@ -25,7 +31,14 @@ const Input = ({label}) => {
     return (
         <View>
             <Text style ={styles.label}>{label}</Text>
-            <TextInput style={styles.input(border)} onFocus={onFocusForm} onBlur={onBlurForm}/>
+            <TextInput
+             style={styles.input(border)}
+             onFocus={onFocusForm}
+             onBlur={onBlurForm}
+             value={value}
+             onChangeText={onChangeText}
+             secureTextEntry={secureTextEntry}
+             />
         </View>
     );
 };
