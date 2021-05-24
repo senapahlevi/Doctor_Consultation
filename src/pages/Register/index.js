@@ -5,10 +5,10 @@ import {Button, Gap, Header,Input} from '../../components';
 import { colors } from '../../utils';
 import useForm from '../../utils/useForm';
 const Register = ({navigation}) => {
-    const [fullName,setFullname] = useState('');
-    const [profession, setProfession] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    // const [fullName,setFullname] = useState('');
+    // const [profession, setProfession] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
 
     /*
     penjelasan usestate
@@ -38,6 +38,10 @@ const Register = ({navigation}) => {
 
      2. Kemudian kita coba part 2 
      rubah di useForm part 2
+
+     3.part 3 kita sudah rubah diuseForm kemudian
+     setForm('fullName',value)} buat fullname biar dinamis
+     biar simpel
      */
      const [form, setForm] = useForm({
         fullName:'',
@@ -54,24 +58,24 @@ const Register = ({navigation}) => {
                     <Input
                     label ="Full Name"
                     value={form.fullName}
-                    onChangeText={value=>setForm(value)}
+                    onChangeText={value=>setForm('fullName',value)}
                     />
                     <Gap height={24}/>
                     <Input label ="Pekerjaan"
                     value={form.profession}
-                    onChangeText={value=>setForm(value)}
+                    onChangeText={value=>setForm('profession',value)}
                     />
                     <Gap height={24} />
                     <Input
                     label ="Email"
                     value={form.email}
-                    onChangeText={value=>setForm(value)}
+                    onChangeText={value=>setForm('email',value)}
                     />
                     <Gap height={24} />
                     <Input
                     label="password"
                     value={form.password}
-                    onChangeText={value=>setForm(value)}
+                    onChangeText={value=>setForm('password',value)}
                     secureTextEntry={true}
                     />
                     <Gap height={24} />

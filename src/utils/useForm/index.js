@@ -26,14 +26,17 @@ tapi inget ini blom dinamis karena manual dan ngebug Wwkwk
 malah formnya ikutan berubah yanglain juga wkwk
  lanjut part 3 biar dinamis dan bener satu satu ga ikutan berubah
 
-3.
+3. part 3 ini part 3 misal mau rubah fullName ya ['fullName']:params
+biar dinamis sesuai yang kita input [type]:params
+atau gw rubah(formType,formValue) => {
+    return setValues({...values, [formType] : formValue});
 */
 const useForm = initialValue => {
     const [values,setValues] = useState(initialValue);
     return [
         values,
-        params => {
-            return setValues({...values, fullName : params});
+        (formType,formValue) => {
+            return setValues({...values, [formType] : formValue});
         },
     ];
 };
