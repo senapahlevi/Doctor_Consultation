@@ -35,6 +35,9 @@ const Register = ({navigation}) => {
      value={form.fullName} -->ini sampel
      tapi ini malah muncul tapi hasildoang jadi bingung
      nih 
+
+     2. Kemudian kita coba part 2 
+     rubah di useForm part 2
      */
      const [form, setForm] = useForm({
         fullName:'',
