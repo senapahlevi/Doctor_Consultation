@@ -10,6 +10,7 @@ import ListHospital from './ListHospital';
 import ChatItem from './ChatItem';
 import Profile from './Profile';
 import ProfileItem from './ProfileItem';
+import Loading from './Loading';
 
 
 
@@ -25,4 +26,5 @@ export {
     ChatItem,
     Profile,
     ProfileItem,
+    Loading,
 };
