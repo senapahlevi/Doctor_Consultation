@@ -5,6 +5,8 @@ import {Button, Gap, Header,Input, Loading} from '../../components';
 import { Fire } from '../../config';
 import { colors } from '../../utils';
 import useForm from '../../utils/useForm';
+import {showMessage, hideMessage} from 'react-native-flash-message';
+
 const Register = ({navigation}) => {
     // const [fullName,setFullname] = useState('');
     // const [profession, setProfession] = useState('');
@@ -57,6 +59,7 @@ const Register = ({navigation}) => {
     */
     const onContinue = () =>{
         console.log(form);
+       
         setLoading(true);
         Fire.auth().createUserWithEmailAndPassword(form.email, form.password)
         .then((userCredential) => {
@@ -68,14 +71,21 @@ const Register = ({navigation}) => {
             // ...
           })
   .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log('error cuy register !:',errorMessage);
+    const errorCode = error.code;
+    const errorMessage = error.message;
     setLoading(false);
-
+    showMessage({
+        message:errorMessage,
+        type:'default',
+        backgroundColor:colors.error,
+        color:colors.white,
+    });
     // ..
   });
-    };
+  
+  //navigation.navigate('UploadPhoto');
+};
+
     /**
      jadi misalkan onChangeText ini buat perubahan text biar bisa 
      diinput/edit jadi (value kita terima) ini input value kemudian memberi 

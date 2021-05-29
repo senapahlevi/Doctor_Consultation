@@ -19,6 +19,7 @@ const mainColors = {
     blue1: '#0066CB',
     black1:'#000000',
     black2:'rgba(0,0,0,0.5)',
+    red1:'#E06379',
 
 };
 
@@ -35,6 +36,7 @@ export const colors = {
     disable:mainColors.grey3,
     cardLight: mainColors.green2,
     loadingBackground:mainColors.black2,
+    error:mainColors.red1,
     border:
         mainColors.grey2,
     text:{
