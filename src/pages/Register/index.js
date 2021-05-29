@@ -63,6 +63,7 @@ const Register = ({navigation}) => {
             // Signed in
             var user = userCredential.user;
             setLoading(false);
+            setForm('reset');
             console.log('register berhasil',user);
             // ...
           })
@@ -121,7 +122,7 @@ const Register = ({navigation}) => {
                     <Gap height={40} />
                 </ScrollView>
             </View>  
-        </View> 
+        </View>
         {loading && <Loading /> }
         </>
 

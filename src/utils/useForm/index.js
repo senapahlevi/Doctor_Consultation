@@ -31,11 +31,18 @@ biar dinamis sesuai yang kita input [type]:params
 atau gw rubah(formType,formValue) => {
     return setValues({...values, [formType] : formValue});
 */
+/*
+jadi intinya jika formType nya reset itu ketika udah isi form
+klik continue kemudian auto blank semua sen seperti diawal biar
+enak diliat */
 const useForm = initialValue => {
     const [values,setValues] = useState(initialValue);
     return [
         values,
         (formType,formValue) => {
+            if (formType === 'reset' ) {
+                return setValues(initialValue);
+            }
             return setValues({...values, [formType] : formValue});
         },
     ];
