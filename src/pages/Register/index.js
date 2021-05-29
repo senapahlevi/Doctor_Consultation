@@ -10,45 +10,7 @@ const Register = ({navigation}) => {
     // const [profession, setProfession] = useState('');
     // const [email, setEmail] = useState('');
     // const [password, setPassword] = useState('');
-
     /*
-    penjelasan usestate
-    nah ini kita mau cek fullname,profesion,
-    email,pass tapi kita contoh ke klik continue
-    on debug di hp kemudian inspect elemen lalu
-    console nah klik abis tuh muncul kalo gak ada
-    sekalipun diisi karena apa? 
-    karena
-    */
-
-    /* jadi ini Fire melakukan autentikasi kemudian
-    target nya form.email,dst,
-    then ini jika sukses maka ...
-    catch error jika error maka ...
-    */
-    const onContinue = () =>{
-        console.log(form);
-        Fire.auth().createUserWithEmailAndPassword(form.email, form.password)
-        .then((userCredential) => {
-            // Signed in
-            var user = userCredential.user;
-            console.log('register berhasil',user);
-            // ...
-          })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log('error cuy register !:',errorMessage);
-    // ..
-  });
-    };
-    /**
-     jadi misalkan onChangeText ini buat perubahan text biar bisa 
-     diinput/edit jadi (value kita terima) ini input value kemudian memberi 
-     value ke salah satu sampel yg gw ambil: setProfile(value),dst
-     */
-
-     /*
      1. ini mereturn sebuah objek karena didalam ( )
      kmudian setForm ini akan merubah values dari useForm
      kemudian onChangeText ganti setForm dan
@@ -70,6 +32,61 @@ const Register = ({navigation}) => {
         password:'',
      });
 
+     /* default awal false */
+     const [loading,setLoading] = useState(false);
+/*
+    /*
+    penjelasan usestate
+    nah ini kita mau cek fullname,profesion,
+    email,pass tapi kita contoh ke klik continue
+    on debug di hp kemudian inspect elemen lalu
+    console nah klik abis tuh muncul kalo gak ada
+    sekalipun diisi karena apa? 
+    karena
+    */
+
+    /* jadi ini Fire melakukan autentikasi kemudian
+    target nya form.email,dst,
+    then ini jika sukses maka ...
+    catch error jika error maka ...
+
+    setLoading(true) - jalan
+    setLoading(False) - off
+    ini diklik on sukses/failed maka off
+
+    */
+    const onContinue = () =>{
+        console.log(form);
+        setLoading(true);
+        Fire.auth().createUserWithEmailAndPassword(form.email, form.password)
+        .then((userCredential) => {
+            // Signed in
+            var user = userCredential.user;
+            setLoading(false);
+            console.log('register berhasil',user);
+            // ...
+          })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log('error cuy register !:',errorMessage);
+    setLoading(false);
+
+    // ..
+  });
+    };
+    /**
+     jadi misalkan onChangeText ini buat perubahan text biar bisa 
+     diinput/edit jadi (value kita terima) ini input value kemudian memberi 
+     value ke salah satu sampel yg gw ambil: setProfile(value),dst
+     */
+/*
+ 
+ jadi misal laoading bernilai true maka muncul
+ komponent loading pada Register
+{loading && <Loading /> }     
+
+ */
     return (
         <>
         <View style={styles.page}>
@@ -105,8 +122,9 @@ const Register = ({navigation}) => {
                 </ScrollView>
             </View>  
         </View> 
-        <Loading />      
+        {loading && <Loading /> }
         </>
+
     );
 };
 /* ini make fragment <> </> sama aja kayak view 
