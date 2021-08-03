@@ -21,13 +21,21 @@ const getImage = () => {
         ImagePicker.launchImageLibrary({}, response =>{
             console.log('response: hasilnya', response);
             /*ini didCancel kalo gw udah klik google photos trus langsung cancel biar ga blank(aneh jir)
+
             */
-           
-          
+            if (response.didCancel || response.error ) {
+                showMessage({
+                    message:'oops you cancel pick the image',
+                    type:'default',
+                    backgroundColor:colors.error,
+                    color:colors.white,
+                });
+            }
+            else{
                 const source = {uri: response.uri};
                 setPhoto(source);
                 setHasPhoto(true);
-            
+            }
             
         });
     };
