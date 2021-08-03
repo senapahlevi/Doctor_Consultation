@@ -1,27 +1,72 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
-import { StyleSheet, Text, View,Image } from 'react-native';
-import { IconAddPhoto, ILNullPhoto } from '../../assets';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View,Image,TouchableOpacity } from 'react-native';
+import { IconAddPhoto, IconRemovePhoto, ILNullPhoto } from '../../assets';
 import { Button, Gap, Header, Link } from '../../components';
 import { colors, fonts } from '../../utils';
-
-
+import ImagePicker from 'react-native-image-picker';
+import { showMessage } from 'react-native-flash-message';
+/* jika punya photo maka ada iconremove
+jika ga ada photo maka iconad gitu */
 const UploadPhoto = ({navigation}) => {
+
+const [hasPhoto, setHasPhoto] = useState(false);
+//hasphot ini kondisi ketika sudah ada foto PP maka button jadi ijo biar bisa next
+const [photo,setPhoto] = useState(ILNullPhoto);
+const getImage = () => {
+    /*sengaja {} biar gak error optios namanya
+    const source = {uri.response.uri} ini 
+    buat milih gambar sumber dari galeri
+    */
+        ImagePicker.launchImageLibrary({}, response =>{
+            console.log('response: hasilnya', response);
+            /*ini didCancel kalo gw udah klik google photos trus langsung cancel biar ga blank(aneh jir)
+            */
+           
+          
+                const source = {uri: response.uri};
+                setPhoto(source);
+                setHasPhoto(true);
+            
+            
+        });
+    };
+        /*const options = {
+            noData:'',
+        };
+        */
+        /* ini setPhoto(source) ini akan ganti jadi galeri
+
+        launchImageLibrary(options, response => {
+            console.log('response : ',response);
+            const source = {uri: response.uri};
+            setPhoto(source);
+            setHasPhoto(true);
+        });*/
+
+
+    /*
+    di <Button /> wajib ada disable biar nyesuain kalo blom
+    upload foto gak bisa neken upload Continue(ijo) dan sesuaikan kondisi ={!hasPhoto}
+    jika hasPhoto ada foto maka true=> ini ga ijo kalo false baru ijo disable button
+    */
     return (
        <View style={styles.page}>
              <Header title="Upload Photo"/>
              <View style={styles.content}>
                 <View style={styles.profile}>
-                     <View style={styles.avatarWrapper}>
-                        <Image source={ILNullPhoto} style={styles.avatar}/>
-                        <IconAddPhoto style={styles.addPhoto} />
-                    </View>
+                     <TouchableOpacity style={styles.avatarWrapper} onPress={getImage}>
+                        <Image source={photo} style={styles.avatar}/>
+                        {hasPhoto && <IconRemovePhoto style={styles.addPhoto} /> }
+                        {!hasPhoto && <IconAddPhoto style={styles.addPhoto}/>}
+                    </TouchableOpacity>
                     <Text >Upload Photo Screen</Text>
                     <Text style={styles.name}>Jessica Stefany</Text>
                     <Text style={styles.profession}>Psychology</Text>
                 </View>
                 <View>
                     <Button
+                    disable = {!hasPhoto}
                     title="Upload and continue"
                     onPress={()=>navigation.replace('MainApp')}
                     />
@@ -59,6 +104,7 @@ const styles = StyleSheet.create({
     avatar:{
         width:110,
         height:110,
+        borderRadius:110 / 2,
     },
     avatarWrapper:{
         width:130,

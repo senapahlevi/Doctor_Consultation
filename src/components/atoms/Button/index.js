@@ -27,6 +27,15 @@ const Button = ({type, title,icon, onPress, disable}) => {
     if (type === 'icon-only'){
         return <IconOnly icon={icon} onPress={onPress} />;
     }
+    //ketika disable true maka gk bisa diklik ya make view
+    if (disable){
+        return (
+            <View
+            style={styles.disableBg}>
+                <Text style={styles.text(type)}>{title}</Text>
+            </View>
+        );
+    }
 
     return (
         <TouchableOpacity
@@ -54,11 +63,23 @@ container: type=>({
     paddingVertical:10,
     borderRadius:10,
 }),
+disableBg:{
+    paddingVertical:10,
+    borderRadius:10,
+    backgroundColor:colors.button.disable.background,
+},
 text: type =>({
     fontSize:16,
     fontFamily:fonts.primary[600],
     textAlign:'center',
-    color: type === 'secondary' ? colors.button.secondary.text:colors.button.primary.text
+    color: type === 'secondary' ? colors.button.secondary.text : colors.button.primary.text,
 }),
+
+disableText:{
+    fontSize:18,
+    fontFamily:fonts.primary[600],
+    textAlign:'center',
+    color:colors.button.disable.text,
+},
 
 });

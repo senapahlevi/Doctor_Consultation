@@ -55,7 +55,9 @@ const Register = ({navigation}) => {
     setLoading(true) - jalan
     setLoading(False) - off
     ini diklik on sukses/failed maka off
-
+    
+    Fire.database().ref() nah manggil database kemudian 
+    simpan kemana?
     */
     const onContinue = () =>{
         console.log(form);
@@ -67,6 +69,18 @@ const Register = ({navigation}) => {
             var user = userCredential.user;
             setLoading(false);
             setForm('reset');
+
+            const data = {
+                fullName: form.fullName,
+                profession:form.profession,
+                email:form.email,
+            };
+            //ref ini kayak https://firebase.com/users/i39d9w9chd(ini id dari firebase user yang terdaftar)
+            //.set(bebas mau nyimpen apa aja)
+            /* diatas data jgn string aja kasih form.Fullname 
+            biar di database kesimpen bukan authentication firebase
+             */
+            Fire.database().ref('users/' + userCredential.user.uid + '/').set(data);
             console.log('register berhasil',user);
             // ...
           })
@@ -83,7 +97,7 @@ const Register = ({navigation}) => {
     // ..
   });
   
-  //navigation.navigate('UploadPhoto');
+  navigation.navigate('UploadPhoto');
 };
 
     /**
