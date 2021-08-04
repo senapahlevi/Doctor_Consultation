@@ -6,16 +6,18 @@ import { Button, Gap, Header, Link } from '../../components';
 import { colors, fonts } from '../../utils';
 import ImagePicker from 'react-native-image-picker';
 import { showMessage } from 'react-native-flash-message';
+import { Fire } from '../../config';
 /* jika punya photo maka ada iconremove
 jika ga ada photo maka iconad gitu */
 const UploadPhoto = ({navigation, route}) => {
 //ini route buat kirim data dari register berupa nama,prof,email biar datanya auto ke uploadphoto
-const {fullName, profession, email} = route.params;
+const {fullName, profession, email, uid} = route.params;
 //munculin data di upload tapi masih dummy ketika sudah isi form trus continue
 console.log('fullName: ',fullName);
 console.log('profession: ',profession);
 console.log('fullName: ',email);
 
+const [photoForDB, setPhotoForDB] = useState('');
 const [hasPhoto, setHasPhoto] = useState(false);
 //hasphot ini kondisi ketika sudah ada foto PP maka button jadi ijo biar bisa next
 const [photo,setPhoto] = useState(ILNullPhoto);
@@ -37,12 +39,14 @@ const getImage = () => {
                     color:colors.white,
                 });
             }
-            else{
+            else {
                 const source = {uri: response.uri};
+                //aslinya uri: 'data:image/jpeg;base64,' + response.data } alternative biar ga manual nulis file photo liat
+                //goal:save PP ke FB .data itu debbuger muncul berupa isi code ascii random dan ada ukuran MB berarti photo
+                setPhotoForDB(`data:${response.type};base64, ${response.data}`);
                 setPhoto(source);
                 setHasPhoto(true);
             }
-            
         });
     };
         /*const options = {
@@ -64,6 +68,13 @@ const getImage = () => {
     upload foto gak bisa neken upload Continue(ijo) dan sesuaikan kondisi ={!hasPhoto}
     jika hasPhoto ada foto maka true=> ini ga ijo kalo false baru ijo disable button
     */
+   //ini sengaja biar kalo udah fix langsung upload,kalo gonta ganti PP makan kuota
+   const uploadAndContinue = () => {
+    Fire.database()
+        .ref('users/' + uid + '/')
+        .update({photo: photoForDB});//isi string key photo isi value String
+        navigation.replace('MainApp');
+    };
     return (
        <View style={styles.page}>
              <Header title="Upload Photo"/>
@@ -89,7 +100,7 @@ const getImage = () => {
                     title ="Skip for this"
                     align="center"
                     size={16}
-                    onPress={()=>navigation.replace('MainApp')}
+                    onPress={uploadAndContinue}
                     />
                 </View>
              </View>

@@ -83,11 +83,14 @@ const Register = ({navigation}) => {
                 fullName: form.fullName,
                 profession:form.profession,
                 email:form.email,
+                uid: userCredential.user.uid,
+                //aslinya uid:success.user.uid buat nanti ke PP biar gak ketiban sama datalain
             };
             //ref ini kayak https://firebase.com/users/i39d9w9chd(ini id dari firebase user yang terdaftar)
             //.set(bebas mau nyimpen apa aja)
             /* diatas data jgn string aja kasih form.Fullname
             biar di database kesimpen bukan authentication firebase*/
+            //.set itu save data baru .update(update data)
             Fire.database()
             .ref('users/' + userCredential.user.uid + '/')
             .set(data);
