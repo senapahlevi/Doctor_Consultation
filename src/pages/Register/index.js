@@ -94,7 +94,9 @@ const Register = ({navigation}) => {
 //ini storeData(data) simpen lokal (data) jangan (form) ntar malah kereveal
             storeData('user', data);
             //berhasil langsung move ke menu upload photo
-            navigation.navigate('UploadPhoto');
+            //ini kirim data parameter udah langsung otomatis .navigate('uploadPhoto',{name:'',profession:''})
+            //nah move ke UploadPhoto duls ntar ada kirim data nya via props route cek dah
+            navigation.navigate('UploadPhoto',data);
             console.log('register berhasil',user);
           })
   .catch((error) => {

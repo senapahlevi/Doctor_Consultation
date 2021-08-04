@@ -8,7 +8,13 @@ import ImagePicker from 'react-native-image-picker';
 import { showMessage } from 'react-native-flash-message';
 /* jika punya photo maka ada iconremove
 jika ga ada photo maka iconad gitu */
-const UploadPhoto = ({navigation}) => {
+const UploadPhoto = ({navigation, route}) => {
+//ini route buat kirim data dari register berupa nama,prof,email biar datanya auto ke uploadphoto
+const {fullName, profession, email} = route.params;
+//munculin data di upload tapi masih dummy ketika sudah isi form trus continue
+console.log('fullName: ',fullName);
+console.log('profession: ',profession);
+console.log('fullName: ',email);
 
 const [hasPhoto, setHasPhoto] = useState(false);
 //hasphot ini kondisi ketika sudah ada foto PP maka button jadi ijo biar bisa next
@@ -69,8 +75,8 @@ const getImage = () => {
                         {!hasPhoto && <IconAddPhoto style={styles.addPhoto}/>}
                     </TouchableOpacity>
                     <Text >Upload Photo Screen</Text>
-                    <Text style={styles.name}>Jessica Stefany</Text>
-                    <Text style={styles.profession}>Psychology</Text>
+                    <Text style={styles.name}>{fullName}</Text>
+                    <Text style={styles.profession}>{profession}</Text>
                 </View>
                 <View>
                     <Button
