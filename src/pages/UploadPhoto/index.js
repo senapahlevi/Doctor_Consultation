@@ -21,7 +21,7 @@ const getImage = () => {
         ImagePicker.launchImageLibrary({}, response =>{
             console.log('response: hasilnya', response);
             /*ini didCancel kalo gw udah klik google photos trus langsung cancel biar ga blank(aneh jir)
-
+            jika cancel dan(||) error maka muncul pesan tujuan biar default ke foto terakhir bukan blank(bug)
             */
             if (response.didCancel || response.error ) {
                 showMessage({

@@ -6,6 +6,7 @@ import { Fire } from '../../config';
 import { colors } from '../../utils';
 import useForm from '../../utils/useForm';
 import {showMessage, hideMessage} from 'react-native-flash-message';
+import { getData, storeData } from '../../utils/localStorage';
 
 const Register = ({navigation}) => {
     // const [fullName,setFullname] = useState('');
@@ -55,13 +56,21 @@ const Register = ({navigation}) => {
     setLoading(true) - jalan
     setLoading(False) - off
     ini diklik on sukses/failed maka off
-    
-    Fire.database().ref() nah manggil database kemudian 
+
+    Fire.database().ref() nah manggil database kemudian
     simpan kemana?
     */
     const onContinue = () =>{
+        /*ini kalo mau baca data lokal storage di debugger chrome
+        getData('user').then(res =>{
+            console.log('data: ', res);
+        })
+        */
         console.log(form);
-       
+        getData('user').then(res =>{
+            console.log('dataz: ', res);
+        });
+        storeData(form);
         setLoading(true);
         Fire.auth().createUserWithEmailAndPassword(form.email, form.password)
         .then((userCredential) => {
@@ -77,12 +86,16 @@ const Register = ({navigation}) => {
             };
             //ref ini kayak https://firebase.com/users/i39d9w9chd(ini id dari firebase user yang terdaftar)
             //.set(bebas mau nyimpen apa aja)
-            /* diatas data jgn string aja kasih form.Fullname 
-            biar di database kesimpen bukan authentication firebase
-             */
-            Fire.database().ref('users/' + userCredential.user.uid + '/').set(data);
+            /* diatas data jgn string aja kasih form.Fullname
+            biar di database kesimpen bukan authentication firebase*/
+            Fire.database()
+            .ref('users/' + userCredential.user.uid + '/')
+            .set(data);
+//ini storeData(data) simpen lokal (data) jangan (form) ntar malah kereveal
+            storeData('user', data);
+            //berhasil langsung move ke menu upload photo
+            navigation.navigate('UploadPhoto');
             console.log('register berhasil',user);
-            // ...
           })
   .catch((error) => {
     const errorCode = error.code;
@@ -94,10 +107,9 @@ const Register = ({navigation}) => {
         backgroundColor:colors.error,
         color:colors.white,
     });
-    // ..
+    console.log('error: ', error);
   });
-  
-  navigation.navigate('UploadPhoto');
+  //ini sampai tahap simpen ke firebase
 };
 
     /**
@@ -106,11 +118,9 @@ const Register = ({navigation}) => {
      value ke salah satu sampel yg gw ambil: setProfile(value),dst
      */
 /*
- 
  jadi misal laoading bernilai true maka muncul
  komponent loading pada Register
-{loading && <Loading /> }     
-
+{loading && <Loading /> }
  */
     return (
         <>
